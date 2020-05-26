@@ -1,0 +1,15 @@
+---
+extension : sh
+title   :   None
+author  :   None
+date    :   None
+summary :   None
+
+---
+OPTIONAL-SECTION1:
+    opt1    : None
+    opt2    : None
+OPTIONAL-SECTION2:
+    opt3    : None
+
+

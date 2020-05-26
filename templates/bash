@@ -1,0 +1,43 @@
+---
+extension : ".sh"
+required:
+    title   :   None
+    author  :   None
+    date    :   None
+    summary :   None
+optional1:
+optional2:
+
+
+^^^
+#!/usr/bin/env bash
+
+# ##################################################
+# TITLE: %%title%%
+# AUTHOR: %%author%%
+# DATE: %%date%%
+# SUMMARY: %%summary%%
+# 
+version="1.0.0"               # Sets version variable
+#
+***HISTORY***
+# HISTORY:
+#   %%date%%  --  v.1.0.0 - Created
+#                   v.1.1.1 - Moved all shared variables to Utils
+#                           - Added $PASS variable when -p is passed
+***HISTORY***
+#
+# ##################################################
+
+***GETOPTS***
+while getopts ":ht" opt; do
+  case ${opt} in
+    h) # process option h
+      ;;
+    t) # process option t
+      ;;
+    \?) echo "Usage: cmd [-h] [-t]"
+      ;;
+  esac
+done
+***GETOPTS***

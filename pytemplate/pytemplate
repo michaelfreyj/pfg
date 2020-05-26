@@ -1,0 +1,78 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from argparse import ArgumentParser
+import logging
+import os
+from pathlib import Path
+import yaml
+
+from methods import choice
+
+parser = ArgumentParser(
+        prog="pytemplate", description="Generates a new file from a skeleton",
+        usage="pytemplate [options]", epilog="For more options, ask me"
+        )
+parser.add_argument(
+        "-f", "--file", nargs=1, dest="infile", action="store",
+        metavar="INFILE", help="Uses a yaml to fill out template",
+        )
+parser.add_argument(
+        "-o", "--outfile", nargs=1, dest="outfile", action="store",
+        metavar="OUTFILE", help="specify output file name",
+        )
+parser.add_argument(
+        "-v", "--verbose", action="store_true", help="Verbose output",
+        )
+parser.add_argument(
+        "-q", "--quiet", action="store_true", help="quiet output",
+        )
+parser.add_argument(
+        "-d", "--debug", action="store_true", help="Create a debugging log",
+        )
+
+
+args = parser.parse_args()
+
+if OUTFILE == None:
+    OUTFILE = input("enter the name for file to be created\n>> ")
+
+# print(args.accumulate(args.integers))
+
+def read_file(filename):
+    with open(filename, 'r') as f:
+        data = f.read()
+    yaml_text = data.split('^^^\n')[0]
+    template = data.split('^^^\n')[1]
+    return (yaml_text, template)
+    
+
+def parse_yaml(yaml_text):
+    for i, sec in enumerate(yaml_text.split('---\n')):
+        if i == 0:
+            try:
+                extension = sec['extension']
+                logging.debug(f'file extension is \'{extension}\'')
+            except KeyError:
+                logging.warning('extension not defined in template file')
+                logging.warning('setting default to \'.txt\'')
+                extension = 'txt'
+            try:
+                required = sec['required']
+                logging.debug('list of required replacements:')
+                for item in required:
+                    logging.debug(str(item))
+            except KeyError:
+                logging.error('no required fields defined in template...')
+        elif i == 1:
+            optional_sections = []
+            optional_sections.append(sec)
+            
+
+def load_yaml(filename):
+    with open(filename, 'r') as f:
+        try:
+            data = yaml.load(f )
+            data = list(yaml.load_all(f, Loader=yaml.FullLoader))
+        
+print(os.getcwd())

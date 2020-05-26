@@ -1,0 +1,41 @@
+extension: sh
+required:
+    - date
+    - author
+    - summary
+    - title
+---
+OPTIONAL-SECTION1:
+  opt1: null
+  opt2: null
+OPTIONAL-SECTION2:
+  opt3: null
+---
+History:
+  date: null
+cat: null
+extension: sh
+getopts: null
+required:
+  author: null
+  date: null
+  summary: null
+  title: null
+^^^
+
+This file has some things to be set:
+Title: %%title%%
+Author: %%author%%
+Date: %%date%%
+Brief description: %%summary%%
+
+
+***OPTIONAL-SECTION***
+
+Thie section is optional, but there can still be things that are set in here.
+If any required options are 
+
+***OPTIONAL-SECTION***
+
+there should probably be some text after this as well
+
