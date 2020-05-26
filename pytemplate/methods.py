@@ -6,6 +6,8 @@ import os
 import sys
 from pkgutil 
 
+log = logging.getLogger('pytemplate.methods')
+
 def choice(opts):
     """prints a a list of options out, returns selected option
     
@@ -16,7 +18,8 @@ def choice(opts):
 
     Returns
     -------
-    selected: 
+    selected: int
+        index of the selected option
     """
     selected = False
     for i, n in enumerate(opts):
@@ -36,19 +39,43 @@ def choice(opts):
             print('{:-^35}'.format(''))
     return selection
 
-def verbose_print(text, verbose):
-    if verbose == True:
-        print(text)
-    else:
-        pass
 
 def load_available_templates():
-    
 
-def read_template(path):
-    with open(path, 'r') as f:
-        template = f.read()
-    return lines
+def read_file(filename):
+    with open(filename, 'r') as f:
+        data = f.read()
+    yaml_text = data.split('^^^\n')[0]
+    template = data.split('^^^\n')[1]
+    return (yaml_text, template)
+
+def load_yaml(filename):
+    with open(filename, 'r') as f:
+        try:
+            data = yaml.load(f )
+            data = list(yaml.load_all(f, Loader=yaml.FullLoader))
+
+
+def parse_yaml(yaml_text):
+    for i, sec in enumerate(yaml_text.split('---\n')):
+        if i == 0:
+            try:
+                extension = sec['extension']
+                log.debug(f'file extension is \'{extension}\'')
+            except KeyError:
+                log.warning('extension not defined in template file')
+                log.warning('setting default to \'.txt\'')
+                extension = 'txt'
+            try:
+                required = sec['required']
+                log.debug('list of required replacements:')
+                for item in required:
+                    log.debug(str(item))
+            except KeyError:
+                log.error('no required fields defined in template...')
+        elif i == 1:
+            optional_sections = []
+            optional_sections.append(sec)
 
 
 def get_keywords(template):
@@ -80,6 +107,7 @@ def get_keywords(template):
             pass
     return sections, boolean_sections, keywords
 
+
 def query(keywords, boolean_sections):
     for k, b in zip(keywords, boolean_sections):
         if b == False:
@@ -103,6 +131,7 @@ def query(keywords, boolean_sections):
 
 
 def substitue_keywords()
+
 
 def make_file(template_file, definitions):
 

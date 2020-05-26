@@ -39,40 +39,12 @@ if OUTFILE == None:
 
 # print(args.accumulate(args.integers))
 
-def read_file(filename):
-    with open(filename, 'r') as f:
-        data = f.read()
-    yaml_text = data.split('^^^\n')[0]
-    template = data.split('^^^\n')[1]
-    return (yaml_text, template)
-    
+logging.basicConfig(
+        level=logging.DEBUG, 
+        format='%(asctime) %(levelname)-8s %(message)'
+        )
 
-def parse_yaml(yaml_text):
-    for i, sec in enumerate(yaml_text.split('---\n')):
-        if i == 0:
-            try:
-                extension = sec['extension']
-                logging.debug(f'file extension is \'{extension}\'')
-            except KeyError:
-                logging.warning('extension not defined in template file')
-                logging.warning('setting default to \'.txt\'')
-                extension = 'txt'
-            try:
-                required = sec['required']
-                logging.debug('list of required replacements:')
-                for item in required:
-                    logging.debug(str(item))
-            except KeyError:
-                logging.error('no required fields defined in template...')
-        elif i == 1:
-            optional_sections = []
-            optional_sections.append(sec)
-            
 
-def load_yaml(filename):
-    with open(filename, 'r') as f:
-        try:
-            data = yaml.load(f )
-            data = list(yaml.load_all(f, Loader=yaml.FullLoader))
+
         
 print(os.getcwd())
