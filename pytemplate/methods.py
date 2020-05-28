@@ -11,7 +11,7 @@ import logging
 import time
 import yaml
 
-log = logging.getLogger('pytemplate.methods')
+log = logging.getLogger('pytemplate.methods').addHandler(logging.NullHandler())
 now = time.localtime()
 
 def choice(opts):
