@@ -79,7 +79,7 @@ def set_arguments():
     verbosity = parser.add_mutually_exclusive_group()
 
     parser.add_argument(
-            "-c", "--conf", nargs=1, dest="infile", action="store", metavar="FILE",
+            "-i", "--in", nargs=1, dest="infile", action="store", metavar="FILE",
             help="specify yaml file to generate file non-interactively",
             )
     parser.add_argument(
