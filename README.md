@@ -35,11 +35,21 @@ Decide on pip or installation script
 Usage
 -----
 
-Any variable that is to be replaced is written
-`%%My-Variable%%` where `My-Variable` is the name of your variable
+```
+usage: pytemplate [options]
 
-Optional sections are indicated by placing `***My-Section***` and
-`+++My-Section+++` on the lines before and after the section, respectively, where `My-Section` is the name of your section.
+Generates a new file from a skeleton
+
+optional arguments:
+  -h, --help           show this help message and exit
+    -i FILE, --in FILE   specify yaml file to generate file non-interactively
+    -o FILE, --out FILE  specify name for output file (default=title)
+    -l, --log            write log to file
+    -q, --quiet          quiet output
+    -v, --verbose        Verbose output
+    -d, --debug          create debugging log
+```
+
 
 
 Once v1.0 is released, this section will be populated..
@@ -59,6 +69,15 @@ Available Templates
 Making custom templates
 -----------------------
 
+Any variable that is to be replaced is written
+`%%My-Variable%%` where `My-Variable` is the name of your variable
+
+Optional sections are indicated by placing `***My-Section***` and
+`+++My-Section+++` on the lines before and after the section, respectively, where `My-Section` is the name of your section.
+
+
+Once v1.0 is released, this section will be populated..
+
 
 To-Do
 -----
@@ -67,16 +86,17 @@ To-Do
 - [ ] ncurses interface
 - [ ] console interface
 - [ ] Arguments
-    - [x] (-h) help
-    - [ ] (-g) gui
-    - [ ] (-i) interactive
-    - [ ] (-l) output log messages to logfile
-    - [ ] (-t) specify file location of template to use
-    - [ ] (-f) specify file with variables (yaml)
-    - [x] (-o) specify output file name
-    - [x] (-v) verbose outut
-    - [x] (-q) quiet outut
-    - [x] (-d) debug outut
+    - [x] `-h/--help`       print help menu
+    - [ ] `-g/--gui`        launch gui
+    - [ ] `-n/--ncurses`    launch gui
+    - [ ] `--config`        create application config file 
+    - [ ] `-l/--log`        output log messages to logfile (optionally takes arg)
+    - [ ] `-t/--template`   specify file location of template to use (nargs=1)
+    - [ ] `-i/--in`         specify yaml file with variables (nargs=1)
+    - [x] `-o/--out`        specify output file name (nargs=1)
+    - [x] `-v/--verbose`    verbose outut
+    - [x] `-q/--quiet`      quiet outut
+    - [x] `-d/--debug`      debug outut
 - [ ] use pip or installation script
     - [ ] installation script for streamlined installation
     - [ ] uninstall option in installation script...
@@ -87,6 +107,7 @@ To-Do
     - [ ] log to console if args.log == False
     - [ ] implement dictConfig() to configure loggers and handlers
 - [ ] functions
+    - [ ] generate application config file
     - [x] creating argument parser
     - [x] creating loggers
     - [x] multiple choice selection
@@ -104,4 +125,7 @@ To-Do
 - [ ] create templates
 - [ ] read application config file for settings if available
     - [ ] include built-in templates in choice
+- [ ] author info
+- [ ] always/never use todays date
+- [ ] 
 - [ ] ability to loop on section (for defining multiples of something repetitive)
