@@ -1,5 +1,8 @@
 # swp files
+# swapfiles
 *.swp
+# test dir
+test/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,71 +1,79 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from argparse import ArgumentParser
 import logging
 import os
 from pathlib import Path
+import time
 import yaml
 
-
-parser = ArgumentParser(
-        prog="pytemplate", description="Generates a new file from a skeleton",
-        usage="pytemplate [options]", epilog="For more options, ask me"
-        )
-parser.add_argument(
-        "-f", "--file", nargs=1, dest="infile", action="store", metavar="INFILE",
-        help="Uses yaml file to generate file without user interaction",
-        )
-parser.add_argument(
-        "-o", "--outfile", nargs=1, dest="outfile", action="store", metavar="OUTFILE",
-        help="specify different name for output file -- (default=title)",
-        )
-parser.add_argument(
-        "-v", "--verbose", action="store_true", help="Verbose output",
-        )
-parser.add_argument(
-        "-q", "--quiet", action="store_true", help="quiet output",
-        )
-parser.add_argument(
-        "-d", "--debug", action="store_true", help="create debugging log",
-        )
+import methods
+from test_methods import messages, more_messages
 
 
+parser = methods.set_arguments()
+now = time.localtime()
 args = parser.parse_args()
+logger, heading = methods.set_loggers(args)
 
+date_string = f'Date: {now.tm_year}-{now.tm_mon}-{now.tm_mday}'
+time_string = f'Time: {now.tm_hour}:{now.tm_min} {now.tm_zone}'
 
-# create logger
-# create console handler and set level to debug
-logger = logging.getLogger('logging-example')
-ch = logging.StreamHandler()
-if args.quiet == True:
-    logger.setLevel(logging.CRITICAL)
-    ch.setLevel(logging.CRITICAL)
-elif args.verbose == True:
-    logger.setLevel(logging.INFO)
-    ch.setLevel(logging.INFO)
-elif args.debug == True:
-    logger.setLevel(logging.DEBUG)
-    ch.setLevel(logging.DEBUG)
+head = "{3:-^50}\n{0: ^50}\n{1: ^50}\n\n{2: ^50}\n{3:-^50}\n".format(
+        date_string, time_string, 'Begin build log', '',
+        )
+heading.debug(head)
+
+logger.debug(args)
+
+if args.outfile == None:
+    # outfile = input("enter the name for file to be created\n>> ")
+    logger.debug('outfile=', args.outfile)
 else:
-    logger.setLevel(logging.WARNING)
-    ch.setLevel(logging.WARNING)
+    outfile = args.outfile
+
+def check_custom_templates():
+    home = Path.home()
+    config_locations = [".config/pytemplate", ".local/pytemplate", ".pytemplate"]
+    config_paths = []
+    for conf in config_locations:
+        config_paths.append(home.joinpath(conf, "templates"))
+
+def check_builtin_templates():
+    dummy =1
+
+template_path = Path.home().joinpath("pytemplate/templates")
+template_name = "sample"
+template_file = template_path.joinpath(template_name)
+
+yaml, template = methods.read_file(template_file)
+substitutions, extension = methods.parse_yaml(yaml)
+methods.query(substitutions)
+
+template = methods.substitute(template, substitutions)
+
+print(template)
+
+    # return subs
+
+# def substitute(defs):
 
 
-# create formatter
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+# for key, value in subs.items():
+#     if key == "extension":
+#         pass
+#     elif key == "required"
+        
+cwd = Path.cwd()
 
-# add formatter to ch
-ch.setFormatter(formatter)
+# template_file = cwd.joinpath(args.infile)
+print(os.getcwd())
 
-# add ch to logger
-logger.addHandler(ch)
-
+logger.debug(f'Logger level = {args.log_level}')
 # 'application' code
-logger.debug('debug message')
-logger.info('info message')
-logger.warning('warn message')
-logger.error('error message')
-logger.critical('critical message')
 
-logging.error('this is a non logger module')
+# print()
+# messages()
+# print()
+# more_messages()
+

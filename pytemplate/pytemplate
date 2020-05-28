@@ -7,7 +7,7 @@ import os
 from pathlib import Path
 import yaml
 
-from methods import choice
+from methods import choice, read_file, parse_yaml 
 
 parser = ArgumentParser(
         prog="pytemplate", description="Generates a new file from a skeleton",
@@ -34,17 +34,18 @@ parser.add_argument(
 
 args = parser.parse_args()
 
-if OUTFILE == None:
-    OUTFILE = input("enter the name for file to be created\n>> ")
+if outfile == None:
+    outfile = input("enter the name for file to be created\n>> ")
 
+template_file = 
+print(os.getcwd())
 # print(args.accumulate(args.integers))
 
-logging.basicConfig(
-        level=logging.DEBUG, 
-        format='%(asctime) %(levelname)-8s %(message)'
-        )
+# logging.basicConfig(
+#         level=logging.DEBUG, 
+#         format='%(asctime) %(levelname)-8s %(message)'
+#         )
 
 
 
         
-print(os.getcwd())

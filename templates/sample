@@ -1,26 +1,15 @@
-extension: sh
+extension: txt
 required:
-    - date
-    - author
-    - summary
     - title
+    - author
+    - date
+    - summary
 ---
 OPTIONAL-SECTION1:
-  opt1: null
-  opt2: null
+    - opt1
+    - opt2
 OPTIONAL-SECTION2:
-  opt3: null
----
-History:
-  date: null
-cat: null
-extension: sh
-getopts: null
-required:
-  author: null
-  date: null
-  summary: null
-  title: null
+    - opt3
 ^^^
 
 This file has some things to be set:
@@ -30,12 +19,22 @@ Date: %%date%%
 Brief description: %%summary%%
 
 
-***OPTIONAL-SECTION***
+***OPTIONAL-SECTION1***
 
 Thie section is optional, but there can still be things that are set in here.
-If any required options are 
+If any required options are here like they will be the same as originally defined:
+Date: %%date%%
 
-***OPTIONAL-SECTION***
+but new options are asked for:
+opt1: %%opt1%%
+opt2: %%opt2%%
 
++++OPTIONAL-SECTION1+++
+
+***OPTIONAL-SECTION2***
 there should probably be some text after this as well
+opt3: %%opt3%%
++++OPTIONAL-SECTION2+++
 
+
+There may be more text with other substitutions. The author's name is %%author%%

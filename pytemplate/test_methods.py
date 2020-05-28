@@ -4,13 +4,21 @@
 import datetime
 import os
 import sys
-from pkgutil 
+import logging
 
 log = logging.getLogger('pytemplate.methods')
 
 def messages():
-    log.debug('this is a debug')
-    log.info('this is info')
-    log.warning('this is a warning')
-    log.error('this is an error')
-    log.critical('this is critical')
+    logger.debug('debug message')
+    logger.info('info message')
+    logger.warning('warn message')
+    logger.error('error message')
+    logger.critical('critical message')
+
+def more_messages():
+    logger.debug('another debug message')
+    logger.info('another info message')
+    logger.warning('another warn message')
+    logger.error('another error message')
+    logger.critical('another critical message')
+
