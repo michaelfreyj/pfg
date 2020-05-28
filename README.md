@@ -21,7 +21,7 @@ Features
 - [ ] non-interactive operation with yaml file
 - [ ] custom templates can used, program with search in certain dirs for them
 - [ ] simple variable substitutions
-- [ ] leave out or include options sections
+- [ ] include or exclude options sections
 - [ ] loop sections for defining repetitive things (command line options)
 
 
@@ -64,7 +64,8 @@ Available Templates
 - [ ] makefile
 - [ ] Bash script
 - [ ] python script
-- [ ] pip setup.py
+- [ ] setup.py (for pip)
+- [ ] Weekly report
 
 Making custom templates
 -----------------------
@@ -124,8 +125,9 @@ To-Do
     - [ ] write skeleton to file
 - [ ] create templates
 - [ ] read application config file for settings if available
-    - [ ] include built-in templates in choice
-- [ ] author info
-- [ ] always/never use todays date
-- [ ] 
+    - [ ] include/exclude built-in templates in choice
+    - [ ] author info
+    - [ ] always/never use todays date
+    - [ ] other config things
 - [ ] ability to loop on section (for defining multiples of something repetitive)
+- [ ] compile with pyinstaller for windows users (py2exe could work too)
