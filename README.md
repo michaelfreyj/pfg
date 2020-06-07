@@ -1,5 +1,5 @@
-pytemplate
-==========
+pfg
+===
 Command line utility to quickly generate files from custom templates
 
 <!-- vim-markdown-toc GFM -->
@@ -36,21 +36,23 @@ Usage
 -----
 
 ```
-usage: pytemplate [options]
+usage: 	pfg [options]
+	pfg -h | --help
 
 Generates a new file from a skeleton
 
 optional arguments:
-  -h, --help           show this help message and exit
-    -i FILE, --in FILE   specify yaml file to generate file non-interactively
-    -o FILE, --out FILE  specify name for output file (default=title)
-    -l, --log            write log to file
-    -q, --quiet          quiet output
-    -v, --verbose        Verbose output
-    -d, --debug          create debugging log
+  -h, --help            show this help message and exit
+  -V, --version         display version number
+  -t FILE, --template FILE
+                        specify template file to use
+  -i FILE, --in FILE    load yaml file to generate file non-interactively
+  -o FILE, --out FILE   name for output file -- no file extension!
+  -p, --print           print output to console
+  -q, --quiet           quiet output
+  -v, --verbose         Verbose output
+  -d, --debug           create debugging log
 ```
-
-
 
 Once v1.0 is released, this section will be populated..
 
@@ -83,7 +85,7 @@ Once v1.0 is released, this section will be populated..
 To-Do
 -----
 
-- [ ] rename `pytemplate` to `pyfg`
+- [x] rename `pytemplate` to `pfg`
 - [ ] GUI menu
 - [ ] ncurses interface
 - [ ] console interface
@@ -116,7 +118,7 @@ To-Do
     - [x] multiple choice selection
     - [x] yes/no selection
     - [ ] checking for built-in templates
-    - [ ] checking for custom templates
+    - [x] checking for custom templates
     - [ ] read built-in template
     - [x] read custom template
     - [x] split template file into yaml and template text
