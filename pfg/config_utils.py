@@ -7,14 +7,14 @@ from input_utils import choice, yes_or_no
 import logging
 from pathlib import Path
 
-log = logging.getLogger('pytemplate.config_utils')
+log = logging.getLogger('pfg.config_utils')
 log.addHandler(logging.NullHandler())
 
 home = Path.home()
 
 def make_rc():
     dummy = 1
-    config_location = home.joinpath(".config/pytemplate")
+    config_location = home.joinpath(".config/pfg")
 
 
 def make_template_dir():
@@ -24,6 +24,6 @@ def make_template_dir():
 def read_rc():
     dummy = 1
     config_locations = [
-            home.joinpath(".config/pytemplate"),
-            home.joinpath(".pytemplate")
+            home.joinpath(".config/pfg"),
+            home.joinpath(".pfg")
             ]

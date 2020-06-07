@@ -14,14 +14,14 @@ import yaml
 
 from input_utils import yes_or_no, choice
 
-log = logging.getLogger('pytemplate.template_utils')
+log = logging.getLogger('pfg.template_utils')
 log.addHandler(logging.NullHandler())
 now = time.localtime()
 
 home = Path.home()
 template_dirs = [
-        ".config/pytemplate/templates",
-        ".pytemplate/templates",
+        ".config/pfg/templates",
+        ".pfg/templates",
         ""
         ]
 

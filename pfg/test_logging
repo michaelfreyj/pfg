@@ -35,7 +35,7 @@ if args.template == None:
     available_templates = check_templates()
     selected_template = choice(available_templates)
     # check templates in the future
-    # template_path = Path.home().joinpath("pytemplate/templates")
+    # template_path = Path.home().joinpath("pfg/templates")
     # template_name = "sample"
     # selected_template = template_path.joinpath(template_name)
 else:

@@ -6,7 +6,7 @@ import os
 import sys
 import logging
 
-log = logging.getLogger('pytemplate.methods')
+log = logging.getLogger('pfg.methods')
 
 def messages():
     logger.debug('debug message')

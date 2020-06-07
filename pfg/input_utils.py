@@ -6,7 +6,7 @@ from collections import namedtuple
 import logging
 import sys
 
-log = logging.getLogger('pytemplate.input_utils')
+log = logging.getLogger('pfg.input_utils')
 log.addHandler(logging.NullHandler())
 
 

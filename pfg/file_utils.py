@@ -10,7 +10,7 @@ from pathlib import Path
 # import sys
 import yaml
 
-log = logging.getLogger('pytemplate.file_utils')
+log = logging.getLogger('pfg.file_utils')
 log.addHandler(logging.NullHandler())
 home = Path.home()
 

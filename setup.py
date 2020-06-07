@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-pytemplate
+pfg
 ----------
 
 
@@ -11,7 +11,7 @@ pytemplate
 
 from setuptools import setup, find_packages
 
-import pytemplate
+import pfg
 
 def read(filename):
     with open(filename) as f:
@@ -36,7 +36,7 @@ setup(
 )
 
 setup(
-    name="pytemplate",
+    name="pfg",
     version="0.0.1",
     author="Michael J. Frey"
     author_email="michaelfreyj@gmail.com",

@@ -20,7 +20,7 @@ def set_arguments():# {{{
     # DEBUG    = 10
     # NOTSET   = 0
     parser = ArgumentParser(
-            prog="pytemplate",
+            prog="pfg",
             description="Generates a new file from a skeleton",
             usage="\t%(prog)s [options]\n\t%(prog)s -h | --help",
             epilog="For more options, ask me",
@@ -75,7 +75,7 @@ def set_arguments():# {{{
 def set_loggers(args):# {{{
     """Creates logger objects for the header and body"""
     # create logger objects
-    logger = logging.getLogger('pytemplate')
+    logger = logging.getLogger('pfg')
     # create console handler and set level to debug
     ch = logging.StreamHandler()
     logger.setLevel(args.log_level)

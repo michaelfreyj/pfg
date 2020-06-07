@@ -10,8 +10,8 @@ import yaml
 from methods import choice, read_file, parse_yaml 
 
 parser = ArgumentParser(
-        prog="pytemplate", description="Generates a new file from a skeleton",
-        usage="pytemplate [options]", epilog="For more options, ask me"
+        prog="pfg", description="Generates a new file from a skeleton",
+        usage="pfg [options]", epilog="For more options, ask me"
         )
 parser.add_argument(
         "-f", "--file", nargs=1, dest="infile", action="store",
