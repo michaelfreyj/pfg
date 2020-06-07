@@ -4,10 +4,11 @@
 import logging
 import os
 from pathlib import Path
+import sys
 import time
 import yaml
 
-from config_utils import make_rc, make_template_dir, read_rc
+from config_utils import read_rc
 from file_utils import read_template, read_yaml, write_file
 from input_utils import yes_or_no, choice
 from sys_utils import set_arguments, set_loggers
@@ -23,13 +24,19 @@ logger, heading = set_loggers(args)
 
 date_string = f'Date: {now.tm_year}-{now.tm_mon}-{now.tm_mday}'
 time_string = f'Time: {now.tm_hour}:{now.tm_min} {now.tm_zone}'
-
 head = "{3:-^50}\n{0: ^50}\n{1: ^50}\n\n{2: ^50}\n{3:-^50}\n".format(
         date_string, time_string, 'Begin build log', '',
         )
 heading.debug(head)
 
 logger.debug(args)
+
+if args.config:
+    if logger.level > 20:
+        logger.setLevel(logging.INFO)
+    make_pfgrc()
+    make_template_dir() 
+    sys.exit(0)
 
 if args.template == None:
     available_templates = check_templates()

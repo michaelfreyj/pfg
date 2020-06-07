@@ -2,8 +2,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from argparse import ArgumentParser
+import argparse
 import logging
+import sys
+
+from config_utils import make_pfgrc, make_template_dir
 
 # from . import __version__
 
@@ -19,10 +22,14 @@ def set_arguments():# {{{
     # INFO     = 20
     # DEBUG    = 10
     # NOTSET   = 0
-    parser = ArgumentParser(
+    parser = argparse.ArgumentParser(
             prog="pfg",
             description="Generates a new file from a skeleton",
-            usage="\t%(prog)s [options]\n\t%(prog)s -h | --help",
+            usage="""\
+\t%(prog)s [-t FILE] [-i FILE] [-o FILE] [-p] [-q | -v | -d]
+\t%(prog)s -c | --config
+\t%(prog)s -h | --help
+\t%(prog)s -V | --version""",
             epilog="For more options, ask me",
             )
     verbosity = parser.add_mutually_exclusive_group()
@@ -32,17 +39,17 @@ def set_arguments():# {{{
             help="display version number"
             )
     parser.add_argument(
-            "-t", "--template", action="store", metavar="FILE",
+            "-t", "--template", action="store", metavar="IN",
             help="specify template file to use",
             )
     parser.add_argument(
             "-i", "--in", nargs=1, dest="infile", action="store",
-            metavar="FILE",
+            metavar="IN",
             help="load yaml file to generate file non-interactively",
             )
     parser.add_argument(
             "-o", "--out", nargs=1, dest="outfile", action="store",
-            metavar="FILE",
+            metavar="OUT",
             help="name for output file -- no file extension!",
             )
     parser.add_argument(
@@ -65,10 +72,10 @@ def set_arguments():# {{{
     #         "-l", "--log", action="store_true", default=False, 
     #         help="write log to file",
     #         )
-    # parser.add_argument(
-    #         "-c", "--config", action="store_true",
-    #         help="run app configuration tool",
-    #         )
+    parser.add_argument(
+            "-c", "--config", nargs=0, action=ConfigAction,
+            help="run app configuration tool",
+            )
     return parser
 # }}}
 
@@ -96,3 +103,13 @@ def set_loggers(args):# {{{
     return logger, heading
 # }}}
 
+class ConfigAction(argparse.Action):
+    # def __init__(self, option_strings, dest, nargs=None, **kwargs):
+    #     if nargs is not None:
+    #         raise ValueError("nargs not allowed")
+    #     super(ConfigAction, self).__init__(option_strings, dest, **kwargs)
+    def __call__(self, parser, namespace, values, option_string=None):
+        make_pfgrc()
+        print('----------------------------------------')
+        make_template_dir() 
+        sys.exit(0)

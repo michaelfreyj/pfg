@@ -36,22 +36,24 @@ Usage
 -----
 
 ```
-usage: 	pfg [options]
+usage: 	pfg [-t FILE] [-i FILE] [-o FILE] [-p] [-q | -v | -d]
+	pfg -c | --config
 	pfg -h | --help
+	pfg -V | --version
 
 Generates a new file from a skeleton
 
 optional arguments:
   -h, --help            show this help message and exit
   -V, --version         display version number
-  -t FILE, --template FILE
-                        specify template file to use
-  -i FILE, --in FILE    load yaml file to generate file non-interactively
-  -o FILE, --out FILE   name for output file -- no file extension!
+  -t IN, --template IN  specify template file to use
+  -i IN, --in IN        load yaml file to generate file non-interactively
+  -o OUT, --out OUT     name for output file -- no file extension!
   -p, --print           print output to console
   -q, --quiet           quiet output
   -v, --verbose         Verbose output
   -d, --debug           create debugging log
+  -c, --config          run app configuration tool
 ```
 
 Once v1.0 is released, this section will be populated..
@@ -112,6 +114,7 @@ To-Do
     - [ ] log to console if args.log == False
     - [ ] implement dictConfig() to configure loggers and handlers
 - [ ] functions
+    - [x] custom config action that launchs config tool
     - [ ] configuration tool use [configparser](https://docs.python.org/3/library/configparser.html)
     - [x] creating argument parser
     - [x] creating loggers
@@ -127,6 +130,7 @@ To-Do
     - [ ] read non-interactive user defined yaml file into yaml-dict
     - [x] use yaml-dict to substitute
     - [ ] write skeleton to file
+- [ ] wrap all template options into template class
 - [ ] create templates (maybe even add template creation tool)
 - [ ] read application config file for settings if available
     - [ ] include/exclude built-in templates in choice
