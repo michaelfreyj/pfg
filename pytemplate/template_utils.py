@@ -2,22 +2,60 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from argparse import ArgumentParser
-# import datetime
+from collections import namedtuple
 import importlib
 import logging
 # import os
+from pathlib import Path
 # from pkgutil
 # import sys
 import time
 import yaml
 
-log = logging.getLogger('pytemplate.methods').addHandler(logging.NullHandler())
+from input_utils import yes_or_no, choice
+
+log = logging.getLogger('pytemplate.template_utils')
+log.addHandler(logging.NullHandler())
 now = time.localtime()
 
+home = Path.home()
+template_dirs = [
+        ".config/pytemplate/templates",
+        ".pytemplate/templates",
+        ""
+        ]
+
+
+Template = namedtuple('Template', ['name', 'path'])
 
 def check_templates():
-    dummy = 1
+    builtin_list = []
+    custom_list = []
+    # builtin templates
+    # Import templates that ship with the package and send itttttt
+    # custom templates
+    for directory in template_dirs:
+        temp_dir = home.joinpath(directory)
+        if temp_dir.exists():
+            if temp_dir.is_dir():
+                log.debug(f"searching for templates in \'{temp_dir}\'")
+                templates = list(temp_dir.glob("*.fgt"))
+                for t in templates:
+                    custom_list.append(Template(t.stem + " (custom)", t))
+            else:
+                log.debug(f"\'{temp_dir}\' exists, but is not a directory")
+        else:
+            log.debug(f"\'{temp_dir}\' does not exist")
+    if len(builtin_list) == 0:
+        log.info('no built-in templates found')
+    if len(custom_list) == 0:
+        log.info('no custom templates found')
+    template_list = builtin_list + custom_list
+    log.debug('templates found')
+    for t in template_list:
+        log.debug(f'|--->\'{t.name}\'')
+    return template_list
+
 
 
 def parse_yaml(yaml_text): # incomplete{{{

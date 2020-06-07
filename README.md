@@ -83,17 +83,19 @@ Once v1.0 is released, this section will be populated..
 To-Do
 -----
 
+- [ ] rename `pytemplate` to `pyfg`
 - [ ] GUI menu
 - [ ] ncurses interface
 - [ ] console interface
 - [ ] Arguments
     - [x] `-h/--help`       print help menu
+    - [x] `-V/--version`    print help menu
     - [ ] `-g/--gui`        launch gui
     - [ ] `-n/--ncurses`    launch gui
-    - [ ] `--config`        create application config file 
-    - [ ] `-l/--log`        output log messages to logfile (optionally takes arg)
-    - [ ] `-t/--template`   specify file location of template to use (nargs=1)
-    - [ ] `-i/--in`         specify yaml file with variables (nargs=1)
+    - [x] `-c/--config`     run config tool 
+    - [x] `-l/--log`        output log messages to logfile (optionally takes arg)
+    - [x] `-t/--template`   specify file location of template to use (nargs=1)
+    - [x] `-i/--in`         specify yaml file with variables (nargs=1)
     - [x] `-o/--out`        specify output file name (nargs=1)
     - [x] `-v/--verbose`    verbose outut
     - [x] `-q/--quiet`      quiet outut
@@ -108,7 +110,7 @@ To-Do
     - [ ] log to console if args.log == False
     - [ ] implement dictConfig() to configure loggers and handlers
 - [ ] functions
-    - [ ] generate application config file
+    - [ ] configuration tool use [configparser](https://docs.python.org/3/library/configparser.html)
     - [x] creating argument parser
     - [x] creating loggers
     - [x] multiple choice selection
@@ -123,9 +125,10 @@ To-Do
     - [ ] read non-interactive user defined yaml file into yaml-dict
     - [x] use yaml-dict to substitute
     - [ ] write skeleton to file
-- [ ] create templates
+- [ ] create templates (maybe even add template creation tool)
 - [ ] read application config file for settings if available
     - [ ] include/exclude built-in templates in choice
+    - [ ] 
     - [ ] author info
     - [ ] always/never use todays date
     - [ ] other config things

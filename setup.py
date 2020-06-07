@@ -10,7 +10,8 @@ pytemplate
 """
 
 from setuptools import setup, find_packages
-import setuptools
+
+import pytemplate
 
 def read(filename):
     with open(filename) as f:
@@ -35,14 +36,16 @@ setup(
 )
 
 setup(
-    name="pytemplate", # Replace with your own username
+    name="pytemplate",
     version="0.0.1",
-    author="Michael J. Frey", "Linda M. Oster"
+    author="Michael J. Frey"
     author_email="michaelfreyj@gmail.com",
     description="Command line utility to quickly generate files from custom templates",
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
     url="https://github.com/michaelfreyj/pytemplate",
+    license='MIT',
+    platforms='any',
     packages=find_packages(),
     package_data={'pytemplate' : 'templates/*'}
     classifiers=[

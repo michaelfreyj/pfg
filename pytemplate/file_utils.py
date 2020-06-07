@@ -2,20 +2,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from argparse import ArgumentParser
-# import datetime
 import importlib
 import logging
 # import os
+from pathlib import Path
 # from pkgutil
 # import sys
-import time
 import yaml
 
-log = logging.getLogger('pytemplate.methods').addHandler(logging.NullHandler())
-now = time.localtime()
+log = logging.getLogger('pytemplate.file_utils')
+log.addHandler(logging.NullHandler())
+home = Path.home()
 
-def read_file(filename): # v1
+def read_template(filename): # v1
     with open(filename, 'r') as f:
         data = f.read()
     yaml_text = data.split('^^^\n')[0]
@@ -29,6 +28,17 @@ def read_file(filename): # v1
 #             data = yaml.load(f )
 #              data = list(ya ml.load_all(f, Loader=yaml.FullLoader))
 
-# def write(template_file):
-#     dummy3 =1
+def read_yaml(filename):
+    dummy = 1
+
+def write_file(template, filepath):
+    write = True
+    log.debug(f'file path: {filepath}')
+    if filepath.exists():
+        write = yes_or_no(f'a file \'{filepath.name}\' already exists, overwrite it?')
+    if write:
+        filepath.write_text(template)
+        log.info(f'\'{filepath.name}\' was written to \'{filepath.parent}\'')
+    else:
+        log.info(f'\'{filepath.name}\' was not written')
 
