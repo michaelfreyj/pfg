@@ -4,9 +4,10 @@
 # this is to generate a config file when the --config flag is passed
 
 from configparser import ConfigParser
-from input_utils import choice, yes_or_no
 import logging
 from pathlib import Path
+
+from .input_utils import choice, yes_or_no
 
 log = logging.getLogger('pfg.config')
 log.addHandler(logging.NullHandler())

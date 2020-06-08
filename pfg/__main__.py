@@ -8,11 +8,10 @@ import sys
 import time
 import yaml
 
-from input_utils import choice
-from sys_utils import set_arguments, set_loggers
-from template_utils import check_templates
-from template import Template
-from test_methods import messages, more_messages
+from .input_utils import choice
+from .sys_utils import set_arguments, set_loggers
+from .template_utils import check_templates
+from .template import Template
 
 def main():
     parser = set_arguments()

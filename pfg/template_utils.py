@@ -12,7 +12,7 @@ from pathlib import Path
 import time
 import yaml
 
-from input_utils import yes_or_no, choice
+from .input_utils import yes_or_no, choice
 
 log = logging.getLogger('pfg.template_utils')
 log.addHandler(logging.NullHandler())

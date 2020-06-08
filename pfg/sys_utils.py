@@ -6,7 +6,7 @@ import argparse
 import logging
 import sys
 
-from config_utils import make_pfgrc, make_template_dir
+from .config_utils import make_pfgrc, make_template_dir
 
 # from . import __version__
 

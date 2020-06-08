@@ -2,7 +2,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from collections import namedtuple
 import logging
 import sys
 import time
@@ -10,8 +9,6 @@ import time
 log = logging.getLogger('pfg.input_utils')
 log.addHandler(logging.NullHandler())
 
-
-Template = namedtuple('Template', ['name', 'path'])
 
 def choice(opts, message="select an option"): # {{{
     """prints a a list of options out, returns selected option

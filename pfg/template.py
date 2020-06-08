@@ -10,7 +10,7 @@ import sys
 import time
 import yaml
 
-from input_utils import yes_or_no
+from .input_utils import yes_or_no
 
 log = logging.getLogger('pfg.Template')
 log.addHandler(logging.NullHandler())
