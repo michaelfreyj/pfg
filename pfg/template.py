@@ -155,7 +155,7 @@ class Template:
             else:
                 if subdict['include']:
                     template = ''.join(template.split(f'***{sec}***\n'))
-                    template = ''.join(template.split(f'+++{sec}+++\n'))
+                    template = ''.join(template.split(f'\n+++{sec}+++'))
                     for key, value in subdict.items():
                         if key != 'include':
                             template = value.join(template.split(f'%%{key}%%'))
