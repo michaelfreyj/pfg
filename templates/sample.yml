@@ -1,0 +1,12 @@
+OPTIONAL-SECTION1:
+  include: true
+  opt1: asd
+  opt2: asd
+OPTIONAL-SECTION2:
+  include: true
+  opt3: asd
+required:
+  author: asd
+  date: 2020-6-8
+  summary: asd
+  title: aasd

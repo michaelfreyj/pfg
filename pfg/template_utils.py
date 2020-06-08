@@ -31,6 +31,7 @@ Template = namedtuple('Template', ['name', 'path'])
 def check_templates():
     builtin_list = []
     custom_list = []
+    template_names = []
     # builtin templates
     # Import templates that ship with the package and send itttttt
     # custom templates
@@ -50,11 +51,12 @@ def check_templates():
         log.info('no built-in templates found')
     if len(custom_list) == 0:
         log.info('no custom templates found')
-    template_list = builtin_list + custom_list
+    template_paths = builtin_list + custom_list
     log.debug('templates found')
-    for t in template_list:
+    for t in template_paths:
         log.debug(f'  |--->\'{t.stem}\'')
-    return template_list
+        template_names.append(t.stem)
+    return template_paths, template_names
 
 
 
