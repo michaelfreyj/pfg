@@ -39,17 +39,18 @@ def set_arguments():# {{{
             help="display version number"
             )
     parser.add_argument(
-            "-t", "--template", action="store", metavar="IN",
+            "-t", "--template", nargs=1, action="store",
+            metavar="F",
             help="specify template file to use",
             )
     parser.add_argument(
             "-i", "--in", nargs=1, dest="infile", action="store",
-            metavar="IN",
+            metavar="F",
             help="load yaml file to generate file non-interactively",
             )
     parser.add_argument(
             "-o", "--out", nargs=1, dest="outfile", action="store",
-            metavar="OUT",
+            metavar="F",
             help="name for output file -- no file extension!",
             )
     parser.add_argument(
@@ -88,7 +89,7 @@ def set_loggers(args):# {{{
     logger.setLevel(args.log_level)
     ch.setLevel(args.log_level)
     # set formatting for logger
-    formatter = logging.Formatter('{levelname}:\t{message}', style="{")
+    formatter = logging.Formatter('{levelname:<7}: {message}', style="{")
     # add formatter to ch
     ch.setFormatter(formatter)
     # add ch to logger

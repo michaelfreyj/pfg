@@ -8,11 +8,11 @@ import sys
 import time
 import yaml
 
-from config_utils import read_rc
 from file_utils import read_template, read_yaml, write_file
 from input_utils import yes_or_no, choice
 from sys_utils import set_arguments, set_loggers
 from template_utils import check_templates, parse_yaml, query, substitute
+from template import Template
 from test_methods import messages, more_messages
 
 __version__ = '0.0.1'

@@ -3,6 +3,7 @@
 *.swp
 # test dir
 test/
+yamls/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

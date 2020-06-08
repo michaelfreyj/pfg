@@ -3,11 +3,12 @@
 
 # this is to generate a config file when the --config flag is passed
 
+from configparser import ConfigParser
 from input_utils import choice, yes_or_no
 import logging
 from pathlib import Path
 
-log = logging.getLogger('pfg.config_utils')
+log = logging.getLogger('pfg.config')
 log.addHandler(logging.NullHandler())
 
 home = Path.home()
@@ -49,11 +50,3 @@ def make_template_dir():
             template_dir.mkdir(parents=True)
             # move sample.fgt here to reference
         
-
-
-def read_rc():
-    dummy = 1
-    config_locations = [
-            home.joinpath(".config/pfg"),
-            home.joinpath(".pfg")
-            ]

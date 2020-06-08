@@ -5,6 +5,7 @@
 from collections import namedtuple
 import logging
 import sys
+import time
 
 log = logging.getLogger('pfg.input_utils')
 log.addHandler(logging.NullHandler())
@@ -30,10 +31,10 @@ def choice(opts, message="select an option"): # {{{
     """
     if type(opts) == list:
         if len(opts) > 0:
+            print()
             for i, n in enumerate(opts):
-                log.debug(type(n))
                 try:
-                    print('{:<4}{}'.format(str(i+1)+'.', n.name))
+                    print('{:<4}{}'.format(str(i+1)+'.', n.stem))
                 except AttributeError:
                     print('{:<4}{}'.format(str(i+1)+'.', n))
             print()
@@ -47,9 +48,10 @@ def choice(opts, message="select an option"): # {{{
                     print('{:-^35}'.format(''))
                     print('your entered {} which is not a valid option'.format(
                         user_input))
-                    print('valid entries are integer values between 1 and {}'.format(
+                    print('valid entries are integer values from 1 to {}'.format(
                         len(opts)))
                     print('{:-^35}'.format(''))
+                    time.sleep(.5)
             return selection
         else:
             log.error('list of options contained zero items')
@@ -74,7 +76,7 @@ def yes_or_no(message):# {{{
             return False
             break
         else:
-            print(f'{ans} is not a valid answer')
+            print(f'\'{ans}\' is not a valid answer')
             ans = input('[y]/n >> ')
 # }}}
 

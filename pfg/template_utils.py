@@ -41,7 +41,7 @@ def check_templates():
                 log.debug(f"searching for templates in \'{temp_dir}\'")
                 templates = list(temp_dir.glob("*.fgt"))
                 for t in templates:
-                    custom_list.append(Template(t.stem + " (custom)", t))
+                    custom_list.append(t)
             else:
                 log.debug(f"\'{temp_dir}\' exists, but is not a directory")
         else:
@@ -53,7 +53,7 @@ def check_templates():
     template_list = builtin_list + custom_list
     log.debug('templates found')
     for t in template_list:
-        log.debug(f'|--->\'{t.name}\'')
+        log.debug(f'  |--->\'{t.stem}\'')
     return template_list
 
 
