@@ -1,5 +1,5 @@
-pfg
-===
+Python File Generator
+=====================
 Command line utility to quickly generate files from custom templates
 
 <!-- vim-markdown-toc GFM -->
