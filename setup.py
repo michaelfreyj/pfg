@@ -27,6 +27,7 @@ setup(
     platforms='any',
     packages=find_packages(),
     package_data={'pytemplate' : ['templates/*']},
+    install_requires=["pyyaml>=5.1"]
     # install_requires=read('requirements.txt').splitlines(),
     # extras_require={'tests': read('requirements-test.txt').splitlines()},
     # entry_points={'console_scripts': ['grip = grip:main']},
@@ -36,6 +37,9 @@ setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.7',
-    entry_points={'console_scripts' : ['pfg = pfg.__main__:main'],
+    # python_requires='>=3.6',
+    entry_points={
+        'console_scripts' : ['pfg = pfg.__main__:main'],
+        # 'gui_scripts': ['baz = pfg.gui:launch']
     },
 )
