@@ -1,0 +1,62 @@
+To-Do
+-----
+
+- [x] rename `pytemplate` to `pfg`
+- [ ] GUI menu
+- [ ] ncurses interface
+- [x] console interface
+- [ ] Arguments
+    - [x] `-h/--help`       print help menu
+    - [x] `-V/--version`    print help menu
+    - [ ] `-g/--gui`        launch gui
+    - [ ] `-n/--ncurses`    launch gui
+    - [x] `-c/--config`     run config tool 
+    - [ ] `-l/--log`        output log messages to logfile (optionally takes arg)
+    - [x] `-t/--template`   specify file location of template to use (nargs=1)
+    - [x] `-i/--in`         specify yaml file with variables (nargs=1)
+    - [x] `-y/--save_yaml`  saves substitution dict for future use
+    - [x] `-o/--out`        specify output file name (nargs=1)
+    - [x] `-p/--print`      prints template text to console
+    - [x] `-v/--verbose`    verbose outut
+    - [x] `-q/--quiet`      quiet outut
+    - [x] `-d/--debug`      debug outut
+- [ ] use pip or installation script
+- [ ] upload project to PyPI
+    - [ ] installation script for streamlined installation
+    - [ ] uninstall option in installation script...
+- [ ] Loggers
+    - [x] log
+    - [x] heading
+    - [ ] log to file based on args.log
+    - [ ] log to console if args.log == False
+    - [ ] implement dictConfig() to configure loggers and handlers
+- [ ] functions
+    - [x] custom config action that launchs config tool
+    - [ ] configuration tool use [configparser](https://docs.python.org/3/library/configparser.html)
+    - [x] creating argument parser
+    - [x] creating loggers
+    - [x] multiple choice selection
+    - [x] yes/no selection
+    - [ ] checking for built-in templates
+    - [x] checking for custom templates
+    - [ ] read built-in template
+    - [x] read custom template
+    - [x] split template file into yaml and template text
+    - [x] interpret yaml file
+    - [x] query user for inputs to define yaml-dict interactively
+    - [x] read non-interactive user defined yaml file into yaml-dict
+    - [x] use yaml-dict to substitute
+    - [x] write skeleton to file
+- [x] wrap all template options into template class
+- [ ] create templates (maybe even add template creation tool)
+- [ ] read application config file for settings if available
+    - [ ] include/exclude built-in templates in choice
+    - [ ] 
+    - [ ] author info
+    - [ ] always/never use todays date
+    - [ ] preferred date style
+    - [ ] other config things
+- [ ] ability to loop on section (for defining multiples of something repetitive)
+- [ ] compile with pyinstaller for windows users (py2exe could work too)
+- [ ] use travis to check builds
+
