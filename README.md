@@ -7,30 +7,32 @@ Command line utility to quickly generate files from custom templates
 * [Features](#features)
 * [Installation](#installation)
 * [Usage](#usage)
-* [Available Templates](#available-templates)
+* [Default Templates](#default-templates)
 * [Making custom templates](#making-custom-templates)
-* [To-Do](#to-do)
+* [Using non-interatice yaml files](#using-non-interatice-yaml-files)
+* [Future Features](#future-features)
+* [Future Templates](#future-templates)
 
 <!-- vim-markdown-toc -->
 
 Features
 --------
 
-- [ ] CLI operation
-- [ ] generates a variety of templates
-- [ ] non-interactive operation with yaml file
-- [ ] custom templates can used, program with search in certain dirs for them
-- [ ] simple variable substitutions
-- [ ] include or exclude options sections
-- [ ] loop sections for defining repetitive things (command line options)
-
+- CLI operation
+- simple variable substitutions
+- include or exclude options sections
+- non-interactive operation with yaml file
+- save template substitutions as yaml file for future use to recreate that template
+- custom templates can be put in `~/.config/pfg/templates`
+- config file that defines prefences and frequent variables like `Author`
 
 Installation
 ------------
 
 Once v1.0 is released, this section will be populated..
 
-Decide on pip or installation script
+- pip from github
+- build from source (requires pyyaml)
 
 Usage
 -----
@@ -58,18 +60,14 @@ optional arguments:
 
 Once v1.0 is released, this section will be populated..
 
-Available Templates
--------------------
+Default Templates
+-----------------
 
-- [ ] Latex doc
-- [ ] LaTeX makefile
-- [ ] Beamer presentation
-- [ ] Beamer makefile
-- [ ] makefile
-- [ ] Bash script
-- [ ] python script
-- [ ] setup.py (for pip)
-- [ ] Weekly report
+- example template
+
+Certain templates are shipped with the program by default, but additional
+templates I have made can be found in the pfg_templates dir. These can be
+modified (if desired) and added to `~/.config/pfg/templates`.
 
 Making custom templates
 -----------------------
@@ -80,64 +78,33 @@ Any variable that is to be replaced is written
 Optional sections are indicated by placing `***My-Section***` and
 `+++My-Section+++` on the lines before and after the section, respectively, where `My-Section` is the name of your section.
 
+Any variable that is defined in the in the config file will be automatically substituted without asking.
 
 Once v1.0 is released, this section will be populated..
 
 
-To-Do
------
+Using non-interatice yaml files
+-------------------------------
 
-- [x] rename `pytemplate` to `pfg`
-- [ ] GUI menu
-- [ ] ncurses interface
-- [ ] console interface
-- [ ] Arguments
-    - [x] `-h/--help`       print help menu
-    - [x] `-V/--version`    print help menu
-    - [ ] `-g/--gui`        launch gui
-    - [ ] `-n/--ncurses`    launch gui
-    - [x] `-c/--config`     run config tool 
-    - [x] `-l/--log`        output log messages to logfile (optionally takes arg)
-    - [x] `-t/--template`   specify file location of template to use (nargs=1)
-    - [x] `-i/--in`         specify yaml file with variables (nargs=1)
-    - [x] `-o/--out`        specify output file name (nargs=1)
-    - [x] `-v/--verbose`    verbose outut
-    - [x] `-q/--quiet`      quiet outut
-    - [x] `-d/--debug`      debug outut
-- [ ] use pip or installation script
-    - [ ] installation script for streamlined installation
-    - [ ] uninstall option in installation script...
-- [ ] Loggers
-    - [x] log
-    - [x] heading
-    - [ ] log to file based on args.log
-    - [ ] log to console if args.log == False
-    - [ ] implement dictConfig() to configure loggers and handlers
-- [ ] functions
-    - [x] custom config action that launchs config tool
-    - [ ] configuration tool use [configparser](https://docs.python.org/3/library/configparser.html)
-    - [x] creating argument parser
-    - [x] creating loggers
-    - [x] multiple choice selection
-    - [x] yes/no selection
-    - [ ] checking for built-in templates
-    - [x] checking for custom templates
-    - [ ] read built-in template
-    - [x] read custom template
-    - [x] split template file into yaml and template text
-    - [x] interpret yaml file
-    - [x] query user for inputs to define yaml-dict interactively
-    - [ ] read non-interactive user defined yaml file into yaml-dict
-    - [x] use yaml-dict to substitute
-    - [ ] write skeleton to file
-- [ ] wrap all template options into template class
-- [ ] create templates (maybe even add template creation tool)
-- [ ] read application config file for settings if available
-    - [ ] include/exclude built-in templates in choice
-    - [ ] 
-    - [ ] author info
-    - [ ] always/never use todays date
-    - [ ] other config things
-- [ ] ability to loop on section (for defining multiples of something repetitive)
-- [ ] compile with pyinstaller for windows users (py2exe could work too)
-- [ ] use travis to check builds
+Once v1.0 is released, this section will be populated..
+
+Future Features
+---------------
+
+- [ ] loop sections for defining repetitive things (command line options)
+- [ ] config file generator
+- [ ] template creation aid
+
+Future Templates
+----------------
+
+- [ ] Latex doc
+- [ ] LaTeX makefile
+- [ ] Beamer presentation
+- [ ] Beamer makefile
+- [ ] C makefile
+- [ ] Bash script
+- [ ] python script
+- [ ] matlab script
+- [ ] setup.py (for pip)
+- [ ] Weekly report
