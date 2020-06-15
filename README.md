@@ -107,4 +107,5 @@ Future Templates
 - [ ] python script
 - [ ] matlab script
 - [ ] setup.py (for pip)
+- [ ] ansys journal file
 - [ ] Weekly report

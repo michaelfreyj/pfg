@@ -56,8 +56,10 @@ To-Do
     - [ ] always/never use todays date
     - [ ] preferred date style
     - [ ] other config things
+    - [ ] autosubstitute predefined vars `for '%%var%%' in template: ...`
 - [ ] ability to loop on section (for defining multiples of something repetitive)
 - [ ] compile with pyinstaller for windows users (py2exe could work too)
 - [ ] use travis to check builds
 - [ ] see if lowest version of python breaks it
+- [ ] design gui with QtDesigner
 
