@@ -94,6 +94,8 @@ Future Features
 - [ ] loop sections for defining repetitive things (command line options)
 - [ ] config file generator
 - [ ] template creation aid
+- [ ] template yaml header specifies the type of substitution: input or choice (right now just input)
+- [ ] ability to loop on section (for defining multiples of something repetitive)
 
 Future Templates
 ----------------

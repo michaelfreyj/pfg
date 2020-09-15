@@ -51,15 +51,14 @@ To-Do
 - [ ] create templates (maybe even add template creation tool)
 - [ ] read application config file for settings if available
     - [ ] include/exclude built-in templates in choice
-    - [ ] 
     - [ ] author info
     - [ ] always/never use todays date
     - [ ] preferred date style
     - [ ] other config things
     - [ ] autosubstitute predefined vars `for '%%var%%' in template: ...`
-- [ ] ability to loop on section (for defining multiples of something repetitive)
 - [ ] compile with pyinstaller for windows users (py2exe could work too)
 - [ ] use travis to check builds
 - [ ] see if lowest version of python breaks it
-- [ ] design gui with QtDesigner
+- [ ] design gui with QtDesigner (probably Qt5)
+- [ ] write unit tests (or some kind of test)
 
